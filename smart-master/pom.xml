@@ -18,7 +18,7 @@
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
-				<version>1.5.18.RELEASE</version>
+				<version>1.5.0.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -26,7 +26,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Edgware.RELEASE</version>
+				<version>Edgware.SR1</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -34,5 +34,6 @@
 	</dependencyManagement>
 		<modules>
 			<module>smart-registry</module>
+			<module>smart-service</module>
 		</modules>
 </project>
