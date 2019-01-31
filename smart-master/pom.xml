@@ -32,8 +32,10 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-		<modules>
-			<module>smart-registry</module>
-			<module>smart-service</module>
-		</modules>
+	<modules>
+		<module>smart-registry</module>
+		<module>smart-service</module>
+		<module>smart-gateway</module>
+		<module>smart-auth</module>
+	</modules>
 </project>
