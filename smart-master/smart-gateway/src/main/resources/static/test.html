@@ -39,7 +39,7 @@ function login(){
 	    	var date = new Date();
  	    	document.getElementById("aa").innerHTML=date.getFullYear()+"-"+date.getMonth()+1+"-"+date.getDate()+" "+date.getHours()+
  	    	":"+date.getMinutes()+":"+date.getSeconds()+
- 	    	"  Login success "+d.ec+"--"+d.em;
+ 	    	"  Login success "+d.ec+"--"+d.userId;
 	    },
 	    error: function (XMLHttpRequest, textStatus, errorThrown) {
 	    	document.getElementById("aa").innerHTML=XMLHttpRequest.status+','+XMLHttpRequest.readyState+', '+textStatus;

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.http.HttpEntity;
@@ -21,6 +23,8 @@ import org.springframework.web.client.RestTemplate;
 @Component
 @ConfigurationProperties(prefix = "auth")
 public class CustomAuthenticationProvider implements AuthenticationProvider {
+	private static final Logger logger = LoggerFactory.getLogger(CustomAuthenticationProvider.class);
+	
 	List<LoginService> loginService;
 
 	public List<LoginService> getLoginService() {
@@ -87,7 +91,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 			throw new BadCredentialsException(code);
 		}
 		String clientId = (String) data.get("client");
-		String userId = (String) ((Map) map.get("data")).get("userId");
+		String userId = (String) ((Map) map.get("data")).get("userId");		
 		if (userId==null||username==null) {
 			throw new BadCredentialsException("401");
 		}
@@ -106,6 +110,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		if (headers.getContentType() == null) {
 			headers.setContentType(MediaType.APPLICATION_JSON);
 		}
+		logger.info("path="+path);
 		@SuppressWarnings("rawtypes")
 		Map map = restTemplate.exchange(path, HttpMethod.POST, new HttpEntity<Map<String, String>>(formData, headers), Map.class).getBody();
 		@SuppressWarnings("unchecked")
